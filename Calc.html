@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор процента</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border: none;
+            border-radius: none;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #fff;
+            background-color: #00507F;
+        }
+        .container{
+            max-width: 1000px;
+            width: 100%;
+            padding: 0 30px;
+            padding-top: 150px;
+            margin:  0 auto;
+            height: 100%;
+
+        }
+        #myinput{
+            text-align: center;
+            background-color: hsla(0, 0%, 100%, 0.25);
+            color: #fff;
+            font-size: 25px;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+        #myinput::-webkit-input-placeholder { 
+            color: hsla(0, 0%, 100%, 0.5); 
+        }
+        .header_main{
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column; 
+            max-width: 400px; 
+            width: 100%;
+        }
+        .blockOne{
+            display: flex;
+            max-width: 400px;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+        }
+       
+        .y, .res{
+            padding-right: 10px;
+        }
+        .two{
+            margin-top: 20px;
+        }
+        .btn{
+            margin-top: 25px;
+            padding: 10px 15px;
+            border: 1px solid #fff;
+            transition: .4s;
+        }
+        .btn:hover{
+            background-color: #fff;
+            color: #00507F;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header_main">
+                <input type="text" id="myinput" placeholder="Изначальная сумма" value="" />
+                <div class="blockOne">
+                    <div class="nameOne">Зароботок  парикмахера</div>
+                    <div class="y">0</div>
+                </div>
+                <div class="blockOne two">
+                    <div class="nameOne">Твой заработок</div>
+                    <div class="res">0</div>
+                </div>
+
+                <button class="btn" onclick="myFunction()">Подсчитать</button>
+            </div>
+        </div>
+    </header>
+
+    
+
+    <script>
+        let ressOne;
+        let ressTwo;
+        let y = document.querySelector('.y');
+        let res = document.querySelector('.res');
+        function myFunction(){
+            let inp = document.getElementById("myinput").value;
+            
+            ressOne = (inp * 60) / 100;
+            ressTwo = inp - ressOne;
+
+            y.textContent = ressOne;
+            res.textContent = ressTwo;
+            
+        }
+    </script>
+</body>
+</html>
